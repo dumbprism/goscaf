@@ -4,7 +4,7 @@
 
 **Enterprise-grade Go project scaffolder**
 
-[![Go Version](https://img.shields.io/badge/Go-1.23-00ADD8?style=flat&logo=go)](https://go.dev)
+[![Go Version](https://img.shields.io/badge/Go-1.25.0-00ADD8?style=flat&logo=go)](https://go.dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI](https://github.com/iyashjayesh/gostart/actions/workflows/ci.yml/badge.svg)](https://github.com/iyashjayesh/gostart/actions/workflows/ci.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/iyashjayesh/gostart)](https://goreportcard.com/report/github.com/iyashjayesh/gostart)
@@ -63,7 +63,7 @@ Sample prompt flow:
 ...
 
 ? Module name: (github.com/your-org/my-api)
-? Go version: (1.23)
+? Go version: (1.25.0)
 ? HTTP framework: gin
 ? Structured logger: slog (stdlib)
 ? Add Viper for config & env management? (Y/n)
@@ -79,7 +79,7 @@ Sample prompt flow:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Scaffolding project: my-api
   Module:    github.com/your-org/my-api
-  Go:        1.23
+  Go:        1.25.0
   Framework: gin
   Logger:    slog
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -121,7 +121,7 @@ gostart init my-api --framework fiber --logger zap --redis --kafka --docker
 | Flag            | Default   | Description                                       |
 |-----------------|-----------|---------------------------------------------------|
 | `--module`      | `""`      | Go module path                                    |
-| `--go-version`  | `1.23`    | Go version (`1.21`, `1.22`, `1.23`)               |
+| `--go-version`  | `1.25.0`  | Go version (`1.23`, `1.24`, `1.25`)               |
 | `--framework`   | `gin`     | HTTP framework (`gin\|fiber\|chi\|echo\|gorilla\|none`) |
 | `--logger`      | `slog`    | Structured logger (`slog\|zerolog\|zap`)           |
 | `--viper`       | `true`    | Add Viper for config & env management             |

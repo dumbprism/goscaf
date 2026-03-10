@@ -50,7 +50,7 @@ var initCmd = &cobra.Command{
 			cfg = &config.ProjectConfig{
 				ProjectName: projectName,
 				ModuleName:  fmt.Sprintf("github.com/your-org/%s", projectName),
-				GoVersion:   "1.23",
+				GoVersion:   "1.25.0",
 				Framework:   config.FrameworkGin,
 				Logger:      config.LoggerSlog,
 				Viper:       true,
@@ -144,7 +144,7 @@ func init() {
 	rootCmd.AddCommand(initCmd)
 
 	initCmd.Flags().StringVar(&flagModule, "module", "", "Go module path")
-	initCmd.Flags().StringVar(&flagGoVersion, "go-version", "1.23", "Go version (1.21, 1.22, 1.23)")
+	initCmd.Flags().StringVar(&flagGoVersion, "go-version", "1.25.0", "Go version (1.23, 1.24, 1.25)")
 	initCmd.Flags().StringVar(&flagFramework, "framework", "gin", "HTTP framework (gin|fiber|chi|echo|gorilla|none)")
 	initCmd.Flags().StringVar(&flagLogger, "logger", "slog", "Structured logger (slog|zerolog|zap)")
 	initCmd.Flags().BoolVar(&flagViper, "viper", true, "Add Viper for config & env management")

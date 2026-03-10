@@ -112,11 +112,11 @@ build: ## Build binary to bin/$(APP_NAME)
 	CGO_ENABLED=0 go build -ldflags="-w -s" -o $(BINARY) ./cmd/main.go
 
 test: ## Run tests with race detection and coverage
-	go test -race -cover ./...
+	GOTOOLCHAIN=auto go test -race -cover ./...
 
 test-coverage: ## Generate HTML coverage report
-	go test -race -coverprofile=coverage.out ./...
-	go tool cover -html=coverage.out -o coverage.html
+	GOTOOLCHAIN=auto go test -race -coverprofile=coverage.out ./...
+	GOTOOLCHAIN=auto go tool cover -html=coverage.out -o coverage.html
 	@echo "Coverage report: coverage.html"
 
 lint: ## Run golangci-lint
@@ -180,6 +180,8 @@ jobs:
 
       - name: Run tests
         run: go test -race -coverprofile=coverage.out ./...
+        env:
+          GOTOOLCHAIN: auto
 
       - name: Upload coverage
         uses: codecov/codecov-action@v4

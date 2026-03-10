@@ -24,11 +24,11 @@ func Run(projectName string) (*config.ProjectConfig, error) {
 	}
 
 	// 2. Go version
-	goVersionStr := "1.23"
+	goVersionStr := "1.25.0"
 	if err := survey.AskOne(&survey.Select{
 		Message: "Go version:",
-		Options: []string{"1.23", "1.22", "1.21"},
-		Default: "1.23",
+		Options: []string{"1.25.0", "1.24.0", "1.23"},
+		Default: "1.25.0",
 	}, &goVersionStr); err != nil {
 		return nil, fmt.Errorf("ask go version: %w", err)
 	}
