@@ -169,11 +169,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
-          go-version: "{{.GoVersion}}"
+          go-version: "stable"
           cache: true
-
-      - name: Download dependencies
-        run: go mod download
 
       - name: Run go vet
         run: go vet ./...
@@ -183,10 +180,11 @@ jobs:
         env:
           GOTOOLCHAIN: auto
 
-      - name: Upload coverage
-        uses: codecov/codecov-action@v4
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
         with:
-          file: coverage.out
+          name: coverage
+          path: coverage.out
 
   lint:
     name: Lint
@@ -195,13 +193,15 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
-          go-version: "{{.GoVersion}}"
+          go-version: "stable"
           cache: true
 
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v6
         with:
           version: latest
+        env:
+          GOLANGCI_LINT_SKIP_GO_VERSION_CHECK: 1
 
   build:
     name: Build
@@ -211,7 +211,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
-          go-version: "{{.GoVersion}}"
+          go-version: "stable"
           cache: true
 
       - name: Build
