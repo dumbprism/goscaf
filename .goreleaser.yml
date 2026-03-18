@@ -1,5 +1,5 @@
-project: goscaf
 version: 2
+project_name: goscaf
 
 before:
   hooks:
