@@ -14,7 +14,7 @@ var addCmd = &cobra.Command{
 	Use:   "add <service-name>",
 	Short: "Add a new service scaffold (DDD layout)",
 	Args:  cobra.ExactArgs(1),
-	RunE: func(cmd *cobra.Command, args []string) error {
+	RunE: func(_ *cobra.Command, args []string) error {
 		wd, err := os.Getwd()
 		if err != nil {
 			return fmt.Errorf("get working directory: %w", err)
@@ -22,12 +22,12 @@ var addCmd = &cobra.Command{
 
 		gen, err := generator.NewServiceGenerator(wd)
 		if err != nil {
-			return err
+			return fmt.Errorf("failed to create servie generator : %w", err)
 		}
 
 		info, err := gen.Run(args[0])
 		if err != nil {
-			return err
+			return fmt.Errorf("failed to run service generator : %w", err)
 		}
 
 		fmt.Println()
